@@ -1,0 +1,30 @@
+.failure-view-h {
+  color: black;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.search-input-span {
+  font-style: italic;
+  color: rgb(43, 116, 226);
+  font-weight: normal;
+}
+
+/*
+.popular {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.EachImage {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.SearchedMovie {
+  height: 300px;
+}
+.Pagination {
+  margin-top: 12px;
+}
+*/
