@@ -3,6 +3,7 @@ import Loader from 'react-loader-spinner'
 
 import MovieCard from '../MovieCard'
 import NavBar from '../Navbar'
+import Pagination from '../Pagination'
 
 import './index.css'
 
@@ -56,7 +57,7 @@ class Upcoming extends React.Component {
   }
 
   render() {
-    const {isLoading} = this.state
+    const {upcomingMovieResponse, isLoading} = this.state
 
     return (
       <>
@@ -66,6 +67,10 @@ class Upcoming extends React.Component {
             ? this.renderLoadingView()
             : this.renderPopularMoviesList()}
         </div>
+        <Pagination
+          totalPages={upcomingMovieResponse.totalPages}
+          apiCall={this.getUpcomingMoviesResponse}
+        />
       </>
     )
   }

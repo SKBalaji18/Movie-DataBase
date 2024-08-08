@@ -3,7 +3,7 @@ import Loader from 'react-loader-spinner'
 
 import MovieCard from '../MovieCard'
 import NavBar from '../Navbar'
-
+import Pagination from '../Pagination'
 import './index.css'
 
 class Popular extends React.Component {
@@ -27,9 +27,9 @@ class Popular extends React.Component {
     })),
   })
 
-  getPopularMoviesResponse = async () => {
+  getPopularMoviesResponse = async (page = 1) => {
     const API_KEY = '9921d7a7a2a6868b951977e93308d47e'
-    const apiUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
+    const apiUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`
     const response = await fetch(apiUrl)
     const data = await response.json()
     const newData = this.getUpdatedData(data)
@@ -56,7 +56,7 @@ class Popular extends React.Component {
   }
 
   render() {
-    const {isLoading} = this.state
+    const {isLoading, popularMovieResponse} = this.state
 
     return (
       <>
@@ -66,6 +66,10 @@ class Popular extends React.Component {
             ? this.renderLoadingView()
             : this.renderPopularMoviesList()}
         </div>
+        <Pagination
+          totalPages={popularMovieResponse.totalPages}
+          apiCall={this.getPopularMoviesResponse}
+        />
       </>
     )
   }

@@ -1,0 +1,22 @@
+.pagination-container {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-no {
+  color: black;
+  font-size: 14px;
+  font-weight: normal;
+  font-family: 'Roboto';
+  margin: 15px;
+}
+
+.control-btn{
+  padding: 15px;
+  cursor: pointer;
+  margin: 15px;
+  border-radius: 12px;
+  border: 1px solid;
+}

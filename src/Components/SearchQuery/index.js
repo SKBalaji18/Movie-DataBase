@@ -2,6 +2,7 @@ import Loader from 'react-loader-spinner'
 
 import MovieCard from '../MovieCard'
 import NavBar from '../Navbar'
+import Pagination from '../Pagination'
 
 import SearchMoviesContext from '../../Context/SearchMoviesContext'
 
@@ -51,14 +52,21 @@ const SearchQuery = () => {
 
   return (
     <SearchMoviesContext.Consumer>
-      {value => (
-        <>
-          <NavBar />
-          <div className="route-page-body">
-            {renderSearchResultViews(value)}
-          </div>
-        </>
-      )}
+      {value => {
+        const {searchResponse, onTriggerSearchingQuery} = value
+        return (
+          <>
+            <NavBar />
+            <div className="route-page-body">
+              {renderSearchResultViews(value)}
+            </div>
+            <Pagination
+              totalPages={searchResponse.totalPages}
+              apiCall={onTriggerSearchingQuery}
+            />
+          </>
+        )
+      }}
     </SearchMoviesContext.Consumer>
   )
 }
